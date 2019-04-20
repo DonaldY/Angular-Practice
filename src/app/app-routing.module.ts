@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'files',
-    loadChildren: 'app/files/files.module#FilesModule'
+    loadChildren: './files/files.module#FilesModule'
   },
   {
     path: '**',

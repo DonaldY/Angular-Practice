@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { SharedModule } from './shared/shared.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -14,6 +16,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   imports: [
       BrowserModule,
+      BrowserAnimationsModule,
+      AppRoutingModule,
       HttpClientModule,
       TranslateModule.forRoot({
           loader: {
@@ -21,7 +25,8 @@ export function HttpLoaderFactory(http: HttpClient) {
               useFactory: HttpLoaderFactory,
               deps: [HttpClient]
           }
-      })
+      }),
+      SharedModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
